@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>gitタイピングゲーム</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .iframe-container {
+            flex: 1;
+        }
+        .iframe-container:last-child {
+            flex: 2;
+            margin-left: calc(50% - 50vw);
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="iframe-container">
+            <iframe src="git_tree.html"></iframe>
+        </div>
+        <div class="iframe-container">
+            <iframe src="typing.html"></iframe>
+        </div>
+    </div>
+</body>
+</html>

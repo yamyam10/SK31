@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    height: 100vh;
+    margin: 0; ;
+}
+
+.container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+.graph{
+    width: 30%;
+    position: relative;
+    left: 10%;
+    margin-top: 100px;
+}
+.typing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    position: relative;
+    left: -10%;
+}
+
+.correct-char {
+    color: red;
+}

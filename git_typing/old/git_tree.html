@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
+</head>
+
+<body>
+    <canvas id="gitGraph"></canvas>
+</body>
+
+<script>
+
+var gitgraph = new GitGraph({
+    template: "metro",
+    orientation: "vertical",
+    mode: "compact",
+    // mode: "extended",
+    elementId: "gitGraph"
+});
+
+//masterブランチを作成
+var master = gitgraph.branch("master"); 
+
+//masterブランチにinitial commit
+master.commit({ message: "initial commit"})
+
+//masterからdevelopをブランチ作成
+var develop = master.branch("develop");
+
+//developにいくつかcommit追加
+develop.commit().commit().commit();
+
+// developの変更をmasterにマージ
+develop.merge(master);
+
+
+</script>
+
+</html>
