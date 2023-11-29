@@ -1,20 +1,36 @@
 // 問題リスト
+// const questions = [
+//     "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
+//     // "git␣checkout␣-b␣master",
+//     "git␣commit␣-m␣'initial␣commit'",
+
+//     "git␣checkout␣-b␣develop",
+//     "git␣add␣.",
+//     "git␣commit␣-m␣'Add␣feature␣A'",
+//     "git␣add␣.",
+//     "git␣commit␣-m␣'Add␣feature␣B'",
+//     "git␣add␣.",
+//     "git␣commit␣-m␣'Add␣feature␣C'",
+
+//     "git␣checkout␣master",
+//     "git␣merge␣develop",
+//     "",
+// ]
 const questions = [
-    "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
+    "1",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
     // "git␣checkout␣-b␣master",
-    "git␣commit␣-m␣'initial␣commit'",
+    "2",
 
-    "git␣checkout␣-b␣develop",
-    "git␣add␣.",
-    "git␣commit␣-m␣'Add␣feature␣A'",
-    "git␣add␣.",
-    "git␣commit␣-m␣'Add␣feature␣B'",
-    "git␣add␣.",
-    "git␣commit␣-m␣'Add␣feature␣C'",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
 
-    "git␣checkout␣master",
-    "git␣merge␣develop",
-    "",
+    "10",
+    "11",
 ]
 
 // 現在の問題のインデックス
@@ -113,6 +129,14 @@ function nextQuestion() {
         default:
             break;
     }
+        // 最後の問題をクリアした場合の処理
+        if (currentQuestionIndex === questions.length - 1) {
+            // ゲーム終了時の処理
+            add_d_Merge();
+            gameEnded = true;
+            retryButton.style.display = "block";
+            startElement.textContent = "ゲーム終了！\n再プレイするにはスタートボタンをクリックしてください";
+        }
 }
 
 

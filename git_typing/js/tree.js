@@ -49,17 +49,3 @@ function add_d_Commit() {
 function add_d_Merge() {
     develop.merge(master);
 }
-// //masterブランチを作成
-// var master = gitgraph.branch("master"); 
-
-// //masterブランチにinitial commit
-// master.commit({ message: "initial commit"})
-
-// // masterからdevelopをブランチ作成
-// var develop = master.branch("develop");
-
-// //developにいくつかcommit追加
-// develop.commit().commit().commit();
-
-// // developの変更をmasterにマージ
-// develop.merge(master);
