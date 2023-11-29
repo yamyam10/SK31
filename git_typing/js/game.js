@@ -76,9 +76,11 @@ function handleKeyDown(event) {
         if (currentCharIndex === currentQuestion.length) {
             if (currentQuestionIndex === questions.length - 1) {
                 // 最後の問題をクリアした場合、ゲーム終了
+                add_d_Merge();
                 gameEnded = true;
                 retryButton.style.display = "block";
                 startElement.textContent = "ゲーム終了！\n再プレイするにはスタートボタンをクリックしてください";
+                createTree();
             } else {
                 nextQuestion();
             }
@@ -132,10 +134,7 @@ function nextQuestion() {
         // 最後の問題をクリアした場合の処理
         if (currentQuestionIndex === questions.length - 1) {
             // ゲーム終了時の処理
-            add_d_Merge();
-            gameEnded = true;
-            retryButton.style.display = "block";
-            startElement.textContent = "ゲーム終了！\n再プレイするにはスタートボタンをクリックしてください";
+            createTree();
         }
 }
 
@@ -158,10 +157,19 @@ function displayCurrentQuestion() {
 
 // スタートボタン要素の取得
 const startButton = document.getElementById("startButton");
+window.addEventListener("keydown", function(event) {
+    // エンターキーのキーコードは13です
+    if (event.keyCode === 13) {
+        startGame();
+    }
+});
 
 // リトライボタン要素の取得
 const retryButton = document.getElementById("retryButton");
 retryButton.style.display = "none";
+retryButton.addEventListener("click", function() {
+    window.location.reload();
+});
 
 // ゲーム開始ボタンクリック時のイベントリスナーを追加
 startButton.addEventListener("click", startGame);

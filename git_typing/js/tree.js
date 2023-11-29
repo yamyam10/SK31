@@ -6,6 +6,16 @@ var gitgraph = new GitGraph({
     elementId: "gitGraph"
 });
 
+function createTree() {
+    // 新しいGitGraphのインスタンスを作成する
+    gitgraph = new GitGraph({
+        template: "metro",
+        orientation: "vertical",
+        mode: "compact",
+        elementId: "gitGraph"
+    });
+}
+
 // masterブランチを作成
 function createMasterBranch() {
     master = gitgraph.branch("master");
