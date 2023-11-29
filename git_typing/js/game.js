@@ -1,29 +1,21 @@
 // 問題リスト
 const questions = [
-    "git␣init",
+    "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
     // "git␣checkout␣-b␣master",
     "git␣commit␣-m␣'initial␣commit'",
 
     "git␣checkout␣-b␣develop",
+    "git␣add␣.",
     "git␣commit␣-m␣'Add␣feature␣A'",
+    "git␣add␣.",
     "git␣commit␣-m␣'Add␣feature␣B'",
+    "git␣add␣.",
     "git␣commit␣-m␣'Add␣feature␣C'",
 
     "git␣checkout␣master",
     "git␣merge␣develop",
+    "",
 ]
-
-const addtext = [
-    'var master = gitgraph.branch("master");',
-    'master.commit({ message: "initial commit" });',
-
-    'var develop = master.branch("develop");',
-    'develop.commit({ message: "Add feature A" });',
-    'develop.commit({ message: "Add feature B" });',
-    'develop.commit({ message: "Add feature C" });',
-    '',
-    'develop.merge(master);',
-];
 
 // 現在の問題のインデックス
 let currentQuestionIndex = -1;
@@ -90,7 +82,39 @@ function nextQuestion() {
     currentQuestionIndex++;
     currentCharIndex = 0;
     displayCurrentQuestion();
+
+    // 各問題ごとに関数を呼び出す
+    switch (currentQuestionIndex) {
+        case 1:
+            createMasterBranch();
+            break;
+        case 2:
+            MasterCommit();
+            break;
+        case 3:
+            add_d_Branch();
+            break;
+        case 5:
+            add_d_Commit();
+            break;
+        case 7:
+            add_d_Commit();
+            break;
+        case 9:
+            add_d_Commit();
+            break;
+        case 10:
+            checkout();
+            break;
+        case 11:
+            add_d_Merge();
+            break;
+        // 必要に応じて他の問題についても同様に処理を追加してください
+        default:
+            break;
+    }
 }
+
 
 // 現在の問題を表示
 function displayCurrentQuestion() {
