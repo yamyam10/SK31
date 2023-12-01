@@ -26,6 +26,7 @@ function MasterCommit() {
     master.commit({ message: "initial commit" });
 }
 
+// masterブランチに移動
 function checkout() {
     master.checkout();
 }
