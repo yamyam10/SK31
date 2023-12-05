@@ -1,37 +1,32 @@
 // 問題リスト
-// const questions = [
-//     "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
-//     // "git␣checkout␣-b␣master",
-//     "git␣commit␣-m␣'initial␣commit'",
-
-//     "git␣checkout␣-b␣develop",
-//     "git␣add␣.",
-//     "git␣commit␣-m␣'Add␣feature␣A'",
-//     "git␣add␣.",
-//     "git␣commit␣-m␣'Add␣feature␣B'",
-//     "git␣add␣.",
-//     "git␣commit␣-m␣'Add␣feature␣C'",
-
-//     "git␣checkout␣master",
-//     "git␣merge␣develop",
-//     "",
-// ]
 const questions = [
-    "1",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
+    "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
     // "git␣checkout␣-b␣master",
-    "2",
-
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-
-    "10",
-    "11",
+    "git␣commit␣-m␣'initial␣commit'",
+    "git␣checkout␣-b␣develop",
+    "git␣add␣.",
+    "git␣commit␣-m␣'Add␣feature␣A'",
+    "git␣add␣.",
+    "git␣commit␣-m␣'Add␣feature␣B'",
+    "git␣add␣.",
+    "git␣commit␣-m␣'Add␣feature␣C'",
+    "git␣checkout␣master",
+    "git␣merge␣develop",
+    "",
 ]
+// const questions = [
+//     "1",
+//     "2",
+//     "3",
+//     "4",
+//     "5",
+//     "6",
+//     "7",
+//     "8",
+//     "9",
+//     "10",
+//     "11",
+// ]
 
 // 現在の問題のインデックス
 let currentQuestionIndex = -1;
@@ -80,7 +75,6 @@ function handleKeyDown(event) {
                 gameEnded = true;
                 retryButton.style.display = "block";
                 startElement.textContent = "ゲーム終了！\n再プレイするにはスタートボタンをクリックしてください";
-                createTree();
             } else {
                 nextQuestion();
             }
@@ -134,10 +128,10 @@ function nextQuestion() {
         // 最後の問題をクリアした場合の処理
         if (currentQuestionIndex === questions.length - 1) {
             // ゲーム終了時の処理
-            createTree();
         }
 }
 
+let allowCreateTree = false; // createTree() を許可するかどうかのフラグ
 
 // 現在の問題を表示
 function displayCurrentQuestion() {
@@ -153,6 +147,12 @@ function displayCurrentQuestion() {
         }
     }
     startElement.innerHTML = questionHTML;
+
+    if (currentQuestionIndex === questions.length - 1 && allowCreateTree) {
+        // 最後の問題をクリアし、かつフラグが許可されている場合のみ createTree() を呼ぶ
+        createTree();
+        allowCreateTree = false; // フラグをリセット
+    }
 }
 
 // スタートボタン要素の取得
@@ -168,7 +168,7 @@ window.addEventListener("keydown", function(event) {
 const retryButton = document.getElementById("retryButton");
 retryButton.style.display = "none";
 retryButton.addEventListener("click", function() {
-    window.location.reload();
+    createTree()
 });
 
 // ゲーム開始ボタンクリック時のイベントリスナーを追加

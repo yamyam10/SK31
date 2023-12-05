@@ -14,6 +14,8 @@ function createTree() {
         mode: "compact",
         elementId: "gitGraph"
     });
+    // ツリーを作成した後、描画を更新する
+    gitgraph.render();
 }
 
 // masterブランチを作成
