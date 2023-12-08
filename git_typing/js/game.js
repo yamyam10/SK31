@@ -158,8 +158,7 @@ function displayCurrentQuestion() {
 // スタートボタン要素の取得
 const startButton = document.getElementById("startButton");
 window.addEventListener("keydown", function(event) {
-    // エンターキーのキーコードは13です
-    if (event.keyCode === 13) {
+    if (event.key === " ") {
         startGame();
     }
 });
