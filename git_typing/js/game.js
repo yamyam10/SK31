@@ -158,7 +158,7 @@ function displayCurrentQuestion() {
 // スタートボタン要素の取得
 const startButton = document.getElementById("startButton");
 window.addEventListener("keydown", function(event) {
-    if (event.key === " ") {
+    if (event.key === "Enter") {
         startGame();
     }
 });
