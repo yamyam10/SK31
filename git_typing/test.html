@@ -14,7 +14,10 @@
             <canvas id="gitGraph"></canvas>
         </div>
         <div class="typing">
-                        <button id="commit_t_Button">testCommit</button>
+            <div>どこのブランチにいるか</div>
+            <button id="master_Button">master</button>
+            <button id="commit_master_Button">masterCommit</button>
+            <button id="commit_t_Button">testCommit</button>
             <button id="merge_t_Button">testmerge</button>
             <button id="branch_t_Button">testbranch</button>
             <button id="commit_d_Button">developCommit</button>
@@ -31,12 +34,22 @@
             // mode: "extended",
             elementId: "gitGraph"
         });
-        
+
         // masterブランチを作成
-        var master = gitgraph.branch("master");
-        
+        function createMasterBranch() {
+            master = gitgraph.branch("master");
+        }
+
         // masterブランチにinitial commit
-        master.commit({ message: "initial commit"});
+        function MasterCommit() {
+            master.commit({ message: "initial commit" });
+        }
+        
+        // // masterブランチを作成
+        // var master = gitgraph.branch("master");
+        
+        // // masterブランチにinitial commit
+        // master.commit({ message: "initial commit"});
         
         // masterからdevelopをブランチ作成
         // var develop = master.branch("develop");
@@ -77,6 +90,8 @@
         
 
         // ボタンがクリックされたときにaddCommitToDevelop()を呼び出す
+        document.getElementById("master_Button").addEventListener("click", createMasterBranch);
+        document.getElementById("commit_master_Button").addEventListener("click", MasterCommit);
         document.getElementById("commit_t_Button").addEventListener("click", add_t_Commit);
         document.getElementById("merge_t_Button").addEventListener("click", add_t_Merge);
         document.getElementById("branch_t_Button").addEventListener("click", add_t_Branch);

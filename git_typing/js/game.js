@@ -1,29 +1,32 @@
 // 問題リスト
 const questions = [
-    "git␣init",
+    "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
     // "git␣checkout␣-b␣master",
     "git␣commit␣-m␣'initial␣commit'",
-
     "git␣checkout␣-b␣develop",
+    "git␣add␣.",
     "git␣commit␣-m␣'Add␣feature␣A'",
+    "git␣add␣.",
     "git␣commit␣-m␣'Add␣feature␣B'",
+    "git␣add␣.",
     "git␣commit␣-m␣'Add␣feature␣C'",
-
     "git␣checkout␣master",
     "git␣merge␣develop",
+    "",
 ]
-
-const addtext = [
-    'var master = gitgraph.branch("master");',
-    'master.commit({ message: "initial commit" });',
-
-    'var develop = master.branch("develop");',
-    'develop.commit({ message: "Add feature A" });',
-    'develop.commit({ message: "Add feature B" });',
-    'develop.commit({ message: "Add feature C" });',
-    '',
-    'develop.merge(master);',
-];
+// const questions = [
+//     "1",
+//     "2",
+//     "3",
+//     "4",
+//     "5",
+//     "6",
+//     "7",
+//     "8",
+//     "9",
+//     "10",
+//     "11",
+// ]
 
 // 現在の問題のインデックス
 let currentQuestionIndex = -1;
@@ -68,6 +71,7 @@ function handleKeyDown(event) {
         if (currentCharIndex === currentQuestion.length) {
             if (currentQuestionIndex === questions.length - 1) {
                 // 最後の問題をクリアした場合、ゲーム終了
+                add_d_Merge();
                 gameEnded = true;
                 retryButton.style.display = "block";
                 startElement.textContent = "ゲーム終了！\n再プレイするにはスタートボタンをクリックしてください";
@@ -90,7 +94,44 @@ function nextQuestion() {
     currentQuestionIndex++;
     currentCharIndex = 0;
     displayCurrentQuestion();
+
+    // 各問題ごとに関数を呼び出す
+    switch (currentQuestionIndex) {
+        case 1:
+            createMasterBranch();
+            break;
+        case 2:
+            MasterCommit();
+            break;
+        case 3:
+            add_d_Branch();
+            break;
+        case 5:
+            add_d_Commit();
+            break;
+        case 7:
+            add_d_Commit();
+            break;
+        case 9:
+            add_d_Commit();
+            break;
+        case 10:
+            checkout();
+            break;
+        case 11:
+            add_d_Merge();
+            break;
+        // 必要に応じて他の問題についても同様に処理を追加してください
+        default:
+            break;
+    }
+        // 最後の問題をクリアした場合の処理
+        if (currentQuestionIndex === questions.length - 1) {
+            // ゲーム終了時の処理
+        }
 }
+
+let allowCreateTree = false; // createTree() を許可するかどうかのフラグ
 
 // 現在の問題を表示
 function displayCurrentQuestion() {
@@ -106,14 +147,28 @@ function displayCurrentQuestion() {
         }
     }
     startElement.innerHTML = questionHTML;
+
+    if (currentQuestionIndex === questions.length - 1 && allowCreateTree) {
+        // 最後の問題をクリアし、かつフラグが許可されている場合のみ createTree() を呼ぶ
+        createTree();
+        allowCreateTree = false; // フラグをリセット
+    }
 }
 
 // スタートボタン要素の取得
 const startButton = document.getElementById("startButton");
+window.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        startGame();
+    }
+});
 
 // リトライボタン要素の取得
 const retryButton = document.getElementById("retryButton");
 retryButton.style.display = "none";
+retryButton.addEventListener("click", function() {
+    createTree()
+});
 
 // ゲーム開始ボタンクリック時のイベントリスナーを追加
 startButton.addEventListener("click", startGame);

@@ -1,0 +1,35 @@
+html, body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0e0e0e;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .graph {
+        width: 30%;
+        position: relative;
+        left: 10%;
+        margin-top: 100px;
+    }
+
+    .typing {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 70%;
+        position: relative;
+        left: -10%;
+    }
+}
+
+.correct-char {
+    color: red;
+}
