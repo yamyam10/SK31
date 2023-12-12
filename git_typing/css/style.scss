@@ -1,14 +1,9 @@
-// リセットCSS
-$font-stack: Arial, sans-serif;
-$primary-color: #333;
-
 html, body {
     display: flex;
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: $font-stack;
-    color: $primary-color;
+    background: #0e0e0e;
 }
 
 .container {
