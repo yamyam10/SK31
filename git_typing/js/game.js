@@ -1,32 +1,32 @@
 // 問題リスト
-const questions = [
-    "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
-    // "git␣checkout␣-b␣master",
-    "git␣commit␣-m␣'initial␣commit'",
-    "git␣checkout␣-b␣develop",
-    "git␣add␣.",
-    "git␣commit␣-m␣'Add␣feature␣A'",
-    "git␣add␣.",
-    "git␣commit␣-m␣'Add␣feature␣B'",
-    "git␣add␣.",
-    "git␣commit␣-m␣'Add␣feature␣C'",
-    "git␣checkout␣master",
-    "git␣merge␣develop",
-    "",
-]
 // const questions = [
-//     "1",
-//     "2",
-//     "3",
-//     "4",
-//     "5",
-//     "6",
-//     "7",
-//     "8",
-//     "9",
-//     "10",
-//     "11",
+//     "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
+//     // "git␣checkout␣-b␣master",
+//     "git␣commit␣-m␣'initial␣commit'",
+//     "git␣checkout␣-b␣develop",
+//     "git␣add␣.",
+//     "git␣commit␣-m␣'Add␣feature␣A'",
+//     "git␣add␣.",
+//     "git␣commit␣-m␣'Add␣feature␣B'",
+//     "git␣add␣.",
+//     "git␣commit␣-m␣'Add␣feature␣C'",
+//     "git␣checkout␣master",
+//     "git␣merge␣develop",
+//     "",
 // ]
+const questions = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+]
 
 // 現在の問題のインデックス
 let currentQuestionIndex = -1;
@@ -159,6 +159,7 @@ function displayCurrentQuestion() {
 const startButton = document.getElementById("startButton");
 window.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
+        createTree();
         startGame();
     }
 });
@@ -167,7 +168,7 @@ window.addEventListener("keydown", function(event) {
 const retryButton = document.getElementById("retryButton");
 retryButton.style.display = "none";
 retryButton.addEventListener("click", function() {
-    createTree()
+    createTree();
 });
 
 // ゲーム開始ボタンクリック時のイベントリスナーを追加
