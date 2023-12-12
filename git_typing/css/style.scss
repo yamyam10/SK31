@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "0xProto";
+    src: url("../fonts/0xProto-Regular.woff2");
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -26,6 +30,7 @@ html, body {
             position: relative;
             left: -10%;
             .text-center{
+                font-family: "0xProto";
                 color: aliceblue;
             }
         }
