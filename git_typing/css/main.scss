@@ -1,11 +1,18 @@
+@font-face {
+  font-family: "0xProto";
+  src: url("../fonts/0xProto-Regular.woff2");
+}
+@font-face {
+  font-family: "MPLUS1Code";
+  src: url("../fonts/MPLUS1Code-VariableFont_wght.ttf");
+}
 html, body {
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
-    color: #333;
+    font-family: "0xProto";
     background: #0e0e0e;
   }
   
@@ -42,6 +49,7 @@ html, body {
     text-decoration: none;
     position: relative;
     z-index: 1;
+    font-family: "MPLUS1Code";
   
     &:before, &:after {
       content: '';
