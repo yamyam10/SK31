@@ -107,13 +107,13 @@ function nextQuestion() {
             add_d_Branch();
             break;
         case 5:
-            add_d_Commit();
+            add_d_Commit_a();
             break;
         case 7:
-            add_d_Commit();
+            add_d_Commit_b();
             break;
         case 9:
-            add_d_Commit();
+            add_d_Commit_c();
             break;
         case 10:
             checkout();
