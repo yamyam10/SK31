@@ -53,7 +53,7 @@ function add_d_Branch() {
     develop = master.branch("develop");
 }
 
-// developにいくつかcommit追加
+// developにcommit追加
 function add_d_Commit() {
     develop.commit();
 }
