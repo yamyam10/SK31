@@ -50,19 +50,32 @@
         });
 
         let currentQuestionIndex = -1;
+        // const questions = [
+        //     "git init",
+        //     "git commit -m 'initial commit'",
+        //     "git checkout -b develop",
+        //     "git add .",
+        //     "git commit -m 'Add feature A'",
+        //     "git add .",
+        //     "git commit -m 'Add feature B'",
+        //     "git add .",
+        //     "git commit -m 'Add feature C'",
+        //     "git checkout master",
+        //     "git merge develop",
+        //     "",
+        // ]
         const questions = [
-            "git init",
-            "git commit -m 'initial commit'",
-            "git checkout -b develop",
-            "git add .",
-            "git commit -m 'Add feature A'",
-            "git add .",
-            "git commit -m 'Add feature B'",
-            "git add .",
-            "git commit -m 'Add feature C'",
-            "git checkout master",
-            "git merge develop",
-            "",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
         ]
 
         // ボタンと入力欄の取得
@@ -132,7 +145,7 @@
                     break;
             }
                 // 最後の問題をクリアした場合の処理
-                if (currentQuestionIndex === questions.length - 1) {
+                if (currentQuestionIndex === questions.length) {
                     endGame()
                 }
         }
@@ -165,6 +178,10 @@
 
         function endGame() {
             retryButton.style.display = "block";
+            retryButton.addEventListener("click", function() {
+                commandLog.innerHTML = '';
+                createTree();
+            });
         }
     </script>
     <script src="./js/tree.js"></script>
