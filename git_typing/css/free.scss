@@ -32,6 +32,11 @@ html, body {
                 color: aliceblue;
             }
             .commandContainer{
+                height: 300px;
+                width: 500px;
+                padding: 1em;
+                overflow-y: auto;
+                border: 2px solid #9c9c9c;
                 .commandLog{
                     font-family: "0xProto";
                 }
@@ -54,6 +59,10 @@ html, body {
                         color: white;
                     }
                 }
+            }
+            .commandContainer::-webkit-scrollbar-thumb {
+                background-color: #707070;
+                border-radius: 10px;
             }
         }
     }
