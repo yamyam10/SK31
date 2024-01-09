@@ -67,6 +67,7 @@
             "git commit -m 'Add feature C'",
             "git checkout master",
             "git merge develop",
+            "",
         ]
 
         // ボタンと入力欄の取得
@@ -137,7 +138,7 @@
             }
                 // 最後の問題をクリアした場合の処理
                 if (currentQuestionIndex === questions.length - 1) {
-                    // ゲーム終了時の処理
+                    endGame()
                 }
         }
 
@@ -165,6 +166,10 @@
             logElement.style.color = color;
             logElement.textContent = message;
             commandLog.appendChild(logElement);
+        }
+
+        function endGame() {
+            retryButton.style.display = "block";
         }
     </script>
     <script src="./js/tree.js"></script>
