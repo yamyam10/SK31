@@ -27,11 +27,15 @@ html, body {
             width: 70%;
             position: relative;
             left: -10%;
+            #retryButton {
+                display: none;
+            }
             .text-center{
                 font-family: "0xProto";
                 color: aliceblue;
             }
             .commandContainer{
+                display: none;
                 height: 300px;
                 width: 500px;
                 padding: 1em;
@@ -49,6 +53,7 @@ html, body {
                         color: white;
                     }
                     .textarea {
+                        display: none;
                         width: 400px;
                         background-color: transparent;
                         font-family: "0xProto";

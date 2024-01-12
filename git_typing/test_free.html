@@ -8,15 +8,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
     <link rel="stylesheet" href="css/free.scss">
     <style>
-        #retryButton {
-            display: none;
-        }
-        #userInput {
-            display: none;
-        }
-        #commandContainer {
-            display: none;
-        }
+
     </style>
 </head>
 <body>
@@ -50,33 +42,33 @@
         });
 
         let currentQuestionIndex = -1;
-        // const questions = [
-        //     "git init",
-        //     "git commit -m 'initial commit'",
-        //     "git checkout -b develop",
-        //     "git add .",
-        //     "git commit -m 'Add feature A'",
-        //     "git add .",
-        //     "git commit -m 'Add feature B'",
-        //     "git add .",
-        //     "git commit -m 'Add feature C'",
-        //     "git checkout master",
-        //     "git merge develop",
-        //     "",
-        // ]
         const questions = [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
+            "git init",
+            "git commit -m 'initial commit'",
+            "git checkout -b develop",
+            "git add .",
+            "git commit -m 'Add feature A'",
+            "git add .",
+            "git commit -m 'Add feature B'",
+            "git add .",
+            "git commit -m 'Add feature C'",
+            "git checkout master",
+            "git merge develop",
+            "",
         ]
+        // const questions = [
+        //     "1",
+        //     "2",
+        //     "3",
+        //     "4",
+        //     "5",
+        //     "6",
+        //     "7",
+        //     "8",
+        //     "9",
+        //     "10",
+        //     "11",
+        // ]
 
         // ボタンと入力欄の取得
         const startButton = document.getElementById("startButton");

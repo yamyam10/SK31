@@ -1,32 +1,32 @@
 // 問題リスト
-// const questions = [
-//     "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
-//     // "git␣checkout␣-b␣master",
-//     "git␣commit␣-m␣'initial␣commit'",
-//     "git␣checkout␣-b␣develop",
-//     "git␣add␣.",
-//     "git␣commit␣-m␣'Add␣feature␣A'",
-//     "git␣add␣.",
-//     "git␣commit␣-m␣'Add␣feature␣B'",
-//     "git␣add␣.",
-//     "git␣commit␣-m␣'Add␣feature␣C'",
-//     "git␣checkout␣master",
-//     "git␣merge␣develop",
-//     "",
-// ]
 const questions = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
+    "git␣init",// 新しいリポジトリの初期セットアップ時に使用するワンタイム コマンド
+    // "git␣checkout␣-b␣master",
+    "git␣commit␣-m␣'initial␣commit'",
+    "git␣checkout␣-b␣develop",
+    "git␣add␣.",
+    "git␣commit␣-m␣'Add␣feature␣A'",
+    "git␣add␣.",
+    "git␣commit␣-m␣'Add␣feature␣B'",
+    "git␣add␣.",
+    "git␣commit␣-m␣'Add␣feature␣C'",
+    "git␣checkout␣master",
+    "git␣merge␣develop",
+    "",
 ]
+// const questions = [
+//     "1",
+//     "2",
+//     "3",
+//     "4",
+//     "5",
+//     "6",
+//     "7",
+//     "8",
+//     "9",
+//     "10",
+//     "11",
+// ]
 
 // 現在の問題のインデックス
 let currentQuestionIndex = -1;
@@ -128,6 +128,7 @@ function nextQuestion() {
         // 最後の問題をクリアした場合の処理
         if (currentQuestionIndex === questions.length - 1) {
             // ゲーム終了時の処理
+            retryButton.style.display = "block";
         }
 }
 
