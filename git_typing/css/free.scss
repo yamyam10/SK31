@@ -27,12 +27,27 @@ html, body {
             width: 70%;
             position: relative;
             left: -10%;
+            #startButton {
+                display: block;
+            }
             #retryButton {
                 display: none;
             }
+            .btn {
+                background-color: #26a641;
+                border-radius: 0.375rem;
+                width: 100px;
+                height: 30px;
+                border: none;
+                font-weight: bold;
+                color: #ffffff;
+            }
+            .btn:hover {
+                background-color: #39D353;
+            }
             .text-center{
                 font-family: "0xProto";
-                color: aliceblue;
+                color: #ffffff;
             }
             .commandContainer{
                 display: none;
@@ -50,7 +65,7 @@ html, body {
                     .dollar {
                         margin-right: 5px;
                         font-family: "0xProto";
-                        color: white;
+                        color: #ffffff;
                     }
                     .textarea {
                         display: none;
@@ -61,7 +76,7 @@ html, body {
                         border: none;
                         outline: none;
                         resize: none;
-                        color: white;
+                        color: #ffffff;
                     }
                 }
             }
@@ -76,6 +91,6 @@ html, body {
         }
     }
     .correct-char {
-        color: red;
+        color: #39D353;
     }
 }
