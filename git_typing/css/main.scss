@@ -1,16 +1,12 @@
 @font-face {
-  font-family: "0xProto";
-  src: url("../fonts/0xProto-Regular.woff2");
-}
-@font-face {
-  font-family: "MPLUS1Code";
-  src: url("../fonts/MPLUS1Code-VariableFont_wght.ttf");
+    font-family: "SourceHanCode";
+    src: url("../fonts/SourceHanCodeJP-Light.otf");
 }
 :root {
-    --black: #161b22;
     --white: #fff;
     --header: #010509;;
     --background: #0D1017;
+    --font-family: "SourceHanCode";
 }
 html, body {
     display: flex;
@@ -19,7 +15,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "0xProto";
+    // font-family: "0xProto";
+    font-family: var(--font-family);
     background: var(--background);
     .page-title {
         color: var(--white);
@@ -51,7 +48,6 @@ html, body {
         text-decoration: none;
         position: relative;
         z-index: 1;
-        font-family: "MPLUS1Code";
         &:before, &:after {
             content: '';
             background: var(--background);

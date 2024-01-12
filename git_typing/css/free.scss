@@ -1,12 +1,12 @@
 @font-face {
-    font-family: "0xProto";
-    src: url("../fonts/0xProto-Regular.woff2");
+    font-family: "SourceHanCode";
+    src: url("../fonts/SourceHanCodeJP-Light.otf");
 }
 :root {
-    --black: #161b22;
     --white: #fff;
     --header: #010509;;
     --background: #0D1017;
+    --font-family: "SourceHanCode";
 }
 html, body {
     margin: 0;
@@ -52,7 +52,7 @@ html, body {
                 background-color: #39D353;
             }
             .text-center{
-                font-family: "0xProto";
+                font-family: var(--font-family);
                 color: var(--white);
             }
             .commandContainer{
@@ -63,21 +63,21 @@ html, body {
                 overflow-y: auto;
                 border: 2px solid var(--white);
                 .commandLog{
-                    font-family: "0xProto";
+                    font-family: var(--font-family);
                 }
                 .input-wrapper{
                     display: flex;
                     align-items: center;
                     .dollar {
                         margin-right: 5px;
-                        font-family: "0xProto";
+                        font-family: var(--font-family);
                         color: var(--white);
                     }
                     .textarea {
                         display: none;
                         width: 400px;
                         background-color: transparent;
-                        font-family: "0xProto";
+                        font-family: var(--font-family);
                         font-size: 1rem;
                         border: none;
                         outline: none;

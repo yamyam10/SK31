@@ -1,12 +1,12 @@
 @font-face {
-    font-family: "0xProto";
-    src: url("../fonts/0xProto-Regular.woff2");
+    font-family: "SourceHanCode";
+    src: url("../fonts/SourceHanCodeJP-Light.otf");
 }
 :root {
-    --black: #161b22;
     --white: #fff;
     --header: #010509;;
     --background: #0D1017;
+    --font-family: "SourceHanCode";
 }
 html, body {
     margin: 0;
@@ -34,7 +34,7 @@ html, body {
             position: relative;
             left: -10%;
             .text-center{
-                font-family: "0xProto";
+                font-family: var(--font-family);
                 color: var(--white);
             }
             .btn {
