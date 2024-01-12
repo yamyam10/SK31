@@ -2,11 +2,17 @@
     font-family: "0xProto";
     src: url("../fonts/0xProto-Regular.woff2");
 }
+:root {
+    --black: #161b22;
+    --white: #fff;
+    --header: #010509;;
+    --background: #0D1017;
+}
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #0e0e0e;
+    background: var(--background);
     .container {
         display: flex;
         justify-content: center;
@@ -29,7 +35,7 @@ html, body {
             left: -10%;
             .text-center{
                 font-family: "0xProto";
-                color: aliceblue;
+                color: var(--white);
             }
             .btn {
                 background-color: #26a641;
@@ -38,7 +44,7 @@ html, body {
                 height: 30px;
                 border: none;
                 font-weight: bold;
-                color: #ffffff;
+                color: var(--white);
             }
             .btn:hover {
                 background-color: #39D353;
