@@ -9,13 +9,11 @@
     --font-family: "SourceHanCode";
 }
 html, body {
-    display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 0;
     padding: 0;
     height: 100%;
-    // font-family: "0xProto";
     font-family: var(--font-family);
     background: var(--background);
     .page-title {
@@ -30,7 +28,7 @@ html, body {
         justify-content: space-around;
         width: 100%;
         min-width: 800px;
-        padding: 6rem 0;
+        padding: 2rem 0;
         flex-shrink: 0;
     }
     .bb_button__text {
