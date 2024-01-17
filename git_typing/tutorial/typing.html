@@ -6,10 +6,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.js"></script>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
+    <link rel="stylesheet" href="../css/header.scss">
     <link rel="stylesheet" href="../css/style.scss">
 </head>
 <body>
-    <a href="index.html">ホームに移動</a>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <!-- <img src="https://see-ss.com/img/logo@2x.png" /> -->
+                <h1>logo</h1>
+            </div>
+            <nav class="header-nav">
+            <div class="header-nav-item">
+                <a href="../index.html" class="header-button">home</a>
+            </div>
+            <div class="header-nav-item">
+                <a href="../free.html" class="header-button">free</a>
+            </div>
+            </nav>
+        </div>
+    </header>
     <div class="container">
         <div class="graph">
             <canvas id="gitGraph"></canvas>
@@ -20,7 +36,7 @@
             <button id="retryButton" class="btn" onclick="startGame()">もう一度</button>
         </div>
     </div>
-    <script src="./js/tree.js"></script>
-    <script src="./js/game.js"></script>
+    <script src="../js/game.js"></script>
+    <script src="../js/tree.js"></script>
 </body>
 </html>

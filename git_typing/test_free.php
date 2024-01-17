@@ -6,12 +6,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.js"></script>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
-    <link rel="stylesheet" href="../css/free.scss">
+    <link rel="stylesheet" href="css/free.scss">
+    <link rel="stylesheet" href="css/header.scss">
 </head>
 <body>
-    <header>
-        <a href="index.html">ホームに移動</a>
-    </header>
+    <?php include 'inc/header.php'; ?>
     <div class="container">
         <div class="graph">
             <canvas id="gitGraph"></canvas>
@@ -172,6 +171,6 @@
             });
         }
     </script>
-    <script src="../js/tree.js"></script>
+    <script src=""></script>
 </body>
 </html>
