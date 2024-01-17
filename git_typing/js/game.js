@@ -107,13 +107,13 @@ function nextQuestion() {
             add_d_Branch();
             break;
         case 5:
-            add_d_Commit();
+            add_d_Commit_a();
             break;
         case 7:
-            add_d_Commit();
+            add_d_Commit_b();
             break;
         case 9:
-            add_d_Commit();
+            add_d_Commit_c();
             break;
         case 10:
             checkout();
@@ -128,6 +128,7 @@ function nextQuestion() {
         // 最後の問題をクリアした場合の処理
         if (currentQuestionIndex === questions.length - 1) {
             // ゲーム終了時の処理
+            retryButton.style.display = "block";
         }
 }
 
@@ -159,6 +160,7 @@ function displayCurrentQuestion() {
 const startButton = document.getElementById("startButton");
 window.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
+        createTree();
         startGame();
     }
 });
@@ -167,7 +169,7 @@ window.addEventListener("keydown", function(event) {
 const retryButton = document.getElementById("retryButton");
 retryButton.style.display = "none";
 retryButton.addEventListener("click", function() {
-    createTree()
+    createTree();
 });
 
 // ゲーム開始ボタンクリック時のイベントリスナーを追加

@@ -1,0 +1,104 @@
+@font-face {
+    font-family: "SourceHanCode";
+    src: url("../fonts/SourceHanCodeJP-Light.otf");
+}
+:root {
+    --white: #fff;
+    --header: #010509;;
+    --background: #0D1017;
+    --btn: #26a641;
+    --btn_hover: #39D353;
+    --font-family: "SourceHanCode";
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--background);
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 80%;
+        .graph {
+            width: 30%;
+            position: relative;
+            left: 10%;
+            margin-top: 100px;
+        }
+        .typing {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 70%;
+            position: relative;
+            left: -10%;
+            #startButton {
+                display: block;
+            }
+            #retryButton {
+                display: none;
+            }
+            .btn {
+                background-color: var(--btn);
+                border-radius: 0.375rem;
+                width: 100px;
+                height: 30px;
+                border: none;
+                font-weight: bold;
+                color: var(--white);
+            }
+            .btn:hover {
+                background-color: var(--btn_hover);
+            }
+            .text-center{
+                font-family: var(--font-family);
+                color: var(--white);
+            }
+            .commandContainer{
+                display: none;
+                height: 300px;
+                width: 500px;
+                padding: 1em;
+                overflow-y: auto;
+                border: 2px solid var(--white);
+                .commandLog{
+                    font-family: var(--font-family);
+                }
+                .input-wrapper{
+                    display: flex;
+                    align-items: center;
+                    .dollar {
+                        margin-right: 5px;
+                        font-family: var(--font-family);
+                        color: var(--white);
+                    }
+                    .textarea {
+                        display: none;
+                        width: 400px;
+                        background-color: transparent;
+                        font-family: var(--font-family);
+                        font-size: 1rem;
+                        border: none;
+                        outline: none;
+                        resize: none;
+                        color: var(--white);
+                    }
+                }
+            }
+            .commandContainer::-webkit-scrollbar {
+                height: 5px;
+                width: 5px;
+            }
+            .commandContainer::-webkit-scrollbar-thumb {
+                background-color: #707070;
+                border-radius: 10px;
+            }
+        }
+    }
+    .correct-char {
+        color: #39D353;
+    }
+}

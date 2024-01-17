@@ -53,9 +53,19 @@ function add_d_Branch() {
     develop = master.branch("develop");
 }
 
-// developにいくつかcommit追加
+// developにcommit追加
 function add_d_Commit() {
     develop.commit();
+}
+
+function add_d_Commit_a() {
+    develop.commit({ message: "Add feature A" });
+}
+function add_d_Commit_b() {
+    develop.commit({ message: "Add feature B" });
+}
+function add_d_Commit_c() {
+    develop.commit({ message: "Add feature C" });
 }
 
 // developの変更をmasterにマージ

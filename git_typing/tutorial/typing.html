@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Git typing tree</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.js"></script>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
+    <link rel="stylesheet" href="../css/header.scss">
+    <link rel="stylesheet" href="../css/style.scss">
+</head>
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <div class="graph">
+            <canvas id="gitGraph"></canvas>
+        </div>
+        <div class="typing">
+            <h1 id="start" class="text-center">スタートボタンを押して下さい</h1>
+            <button id="startButton" class="btn" onclick="startGame()">スタート</button>
+            <button id="retryButton" class="btn" onclick="startGame()">もう一度</button>
+        </div>
+    </div>
+    <script>
+        fetch("../header.html")
+        .then((response) => response.text())
+        .then((data) => document.querySelector("#header").innerHTML = data);
+    </script>
+    <script src="../js/game.js"></script>
+    <script src="../js/tree.js"></script>
+</body>
+</html>
