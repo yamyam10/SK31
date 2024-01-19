@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <title>Git typing top</title>
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/main.scss">
+    <link rel="stylesheet" href="./css/header.scss">
+    <link rel="stylesheet" href="./css/main.scss">
 </head>
 <body>
-    <h1 class="page-title">ようこそGit typingへ</h1><br>
-    <section class="section">
-        <a href="tutorial/tutorial.html" class="bb_button bb_button--corner"><span class="bb_button__text">チュートリアルはこちら</span></a>
-        <a href="free.html" class="bb_button bb_button--corner"><span class="bb_button__text">自由入力はこちら</span></a>
-      </section>
+    <div id="header"></div>
+    <div class="container">
+        <h1 class="page-title">ようこそGit typingへ</h1><br>
+        <section class="section">
+            <a href="tutorial/tutorial.html" class="bb_button bb_button--corner"><span class="bb_button__text">チュートリアルはこちら</span></a>
+            <a href="free.html" class="bb_button bb_button--corner"><span class="bb_button__text">自由入力はこちら</span></a>
+        </section>
+    </div>
+    <script>
+        fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => document.querySelector("#header").innerHTML = data);
+    </script>
 </body>
 </html>
