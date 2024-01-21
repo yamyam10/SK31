@@ -15,137 +15,50 @@ html, body {
     padding: 0;
     height: 100%;
     background: var(--background);
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .header {
+        background: var(--header);
+        font-family: var(--font-family);
+        box-sizing: border-box;
         width: 100%;
-        height: 80%;
-        .graph {
-            width: 30%;
-            position: relative;
-            left: 10%;
-            margin-top: 100px;
-        }
-        .typing {
+        .header-inner {
             display: flex;
-            justify-content: center;
             align-items: center;
-            flex-direction: column;
-            width: 70%;
-            position: relative;
-            left: -10%;
-            #startButton {
-                display: block;
+            justify-content: space-between;
+            max-width: 1024px;
+            height: 60px;
+            padding: 0 0.8em;
+            margin: 0 auto;
+            font-size: 1.2em;
+            .logo img {
+                width: 70px;
             }
-            #retryButton {
-                display: none;
-            }
-            .btn {
-                background-color: var(--btn);
-                border-radius: 0.375rem;
-                width: 100px;
-                height: 30px;
-                border: none;
-                font-weight: bold;
+            .logo{
                 color: var(--white);
             }
-            .btn:hover {
-                background-color: var(--btn_hover);
+            .header-nav {
+                display: flex;
+                align-items: center;
             }
-            .text-center{
-                font-family: var(--font-family);
-                color: var(--white);
-            }
-            .commandContainer{
-                display: none;
-                height: 300px;
-                width: 500px;
-                padding: 1em;
-                overflow-y: auto;
-                border: 2px solid var(--white);
-                .commandLog{
-                    font-family: var(--font-family);
+            .header-nav-item {
+                display: flex;
+                align-items: center;
+                margin-left: 16px;
+                .header-button {
+                    box-sizing: border-box;
+                    display: inline-block;
+                    padding: 0.5em 1.2em;
+                    font-size: 12px;
+                    text-decoration: none;
+                    cursor: pointer;
+                    user-select: none;
+                    font-weight: bold;
+                    color: var(--white);
+                    background-color: var(--btn);
+                    border-radius: 3px;
                 }
-                .input-wrapper{
-                    display: flex;
-                    align-items: center;
-                    .dollar {
-                        margin-right: 5px;
-                        font-family: var(--font-family);
-                        color: var(--white);
-                    }
-                    .textarea {
-                        display: none;
-                        width: 400px;
-                        background-color: transparent;
-                        font-family: var(--font-family);
-                        font-size: 1rem;
-                        border: none;
-                        outline: none;
-                        resize: none;
-                        color: var(--white);
-                    }
+                .header-button:hover {
+                    background-color: var(--btn_hover);
                 }
-            }
-            .commandContainer::-webkit-scrollbar {
-                height: 5px;
-                width: 5px;
-            }
-            .commandContainer::-webkit-scrollbar-thumb {
-                background-color: #707070;
-                border-radius: 10px;
-            }
-        }
-    }
-    .correct-char {
-        color: #39D353;
-    }
-}
-
-.header {
-    background: var(--header);
-    font-family: var(--font-family);
-    box-sizing: border-box;
-    width: 100%;
-    .header-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 1024px;
-        height: 60px;
-        padding: 0 0.8em;
-        margin: 0 auto;
-        font-size: 1.2em;
-        .logo img {
-            width: 70px;
-        }
-        .logo{
-            color: var(--white);
-        }
-        .header-nav {
-            display: flex;
-            align-items: center;
-        }
-        .header-nav-item {
-            display: flex;
-            align-items: center;
-            margin-left: 16px;
-            .header-button {
-                box-sizing: border-box;
-                display: inline-block;
-                padding: 0.5em 1.2em;
-                font-size: 12px;
-                text-decoration: none;
-                cursor: pointer;
-                user-select: none;
-                font-weight: bold;
-                color: var(--white);
-                background-color: var(--btn);
-                border-radius: 3px;
-            }
-            .header-button:hover {
-                background-color: var(--btn_hover);
             }
         }
     }
