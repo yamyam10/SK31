@@ -35,8 +35,11 @@ html, body {
                 height: 65px;
             }
             .logo{
-                display: flex;
-                color: var(--white);
+                .logolink{
+                    display: flex;
+                    color: var(--white);
+                    text-decoration: none;
+                }
             }
             .header-nav {
                 display: flex;
