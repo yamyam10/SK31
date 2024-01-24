@@ -25,9 +25,9 @@ function createMasterBranch() {
     master = gitgraph.branch("master");
 }
 
-// masterブランチにinitial commit
+// masterブランチに初めてのコミット
 function MasterCommit() {
-    master.commit({ message: "初めてのコミット" });
+    master.commit({ message: "初めてのコミット"});
 }
 
 // masterブランチに移動
