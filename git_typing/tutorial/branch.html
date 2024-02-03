@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>GitCraft branch</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.js"></script>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
+    <link rel="stylesheet" href="../css/header.scss">
+    <link rel="stylesheet" href="../css/free.scss">
+</head>
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <div class="graph">
+            <canvas id="gitGraph"></canvas>
+        </div>
+        <div class="typing">
+            <h1 id="start" class="text-center">スタートボタンを押して下さい</h1>
+            <button id="startButton" class="btn">スタート</button>
+            <button id="retryButton" class="btn">もう一度</button>
+            <div id="commandContainer" class="commandContainer">
+                <div id="commandLog" class="commandLog"></div>
+                <div class="input-wrapper">
+                    <span class="dollar">$</span>
+                    <input type="text" id="userInput" class="textarea">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        fetch("../header.html")
+        .then((response) => response.text())
+        .then((data) => document.querySelector("#header").innerHTML = data);
+
+        var textarea = document.getElementById('userInput');
+
+        document.addEventListener('click', function(e) {
+        if (e.target !== textarea) {
+            textarea.style.backgroundColor = 'transparent'; // テキストエリアの背景を透明に設定
+        }
+        });
+
+        let currentQuestionIndex = -1;
+        const questions = [
+            "git init",
+            "git commit -m 'initial commit'",
+            "git checkout -b sub1",  // ブランチ作成コマンドを追加
+            "git branch",           // ブランチ一覧表示コマンドを追加
+            "git checkout sub1",    // ブランチ移動コマンドを追加
+            "git branch"            // ブランチ一覧表示コマンドを追加
+        ]
+
+        // ボタンと入力欄の取得
+        const startButton = document.getElementById("startButton");
+        const retryButton = document.getElementById("retryButton");
+        const userInput = document.getElementById("userInput");
+        const commandLog = document.getElementById("commandLog");
+        const commandContainer = document.getElementById("commandContainer");
+
+        // スタートボタンクリック時の処理
+        startButton.addEventListener("click", startGame);
+
+        // リトライボタンクリック時の処理
+        retryButton.addEventListener("click", startGame);
+
+        // 入力欄でEnterキーが押された時の処理
+        userInput.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                checkCommand();
+            }
+        });
+
+        function startGame() {
+            currentQuestionIndex = -1;
+            nextQuestion();
+            retryButton.style.display = "none";
+            startButton.style.display = "none";
+            userInput.style.display = "block";
+            commandContainer.style.display = "block";
+            userInput.value = '';
+            userInput.focus();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            currentCharIndex = 0;
+            displayCurrentQuestion();
+
+            // 各問題ごとに関数を呼び出す
+            switch (currentQuestionIndex) {
+                case 2:
+                    createMasterBranch();
+                    break;
+                case 4:
+                    createSub1Branch();  // 新しく追加されたブランチ作成関数
+                    break;
+                case 5:
+                    showBranches();      // 新しく追加されたブランチ一覧表示関数
+                    break;
+                case 6:
+                    checkoutSub1();      // 新しく追加されたブランチ移動関数
+                    break;
+                case 7:
+                    showBranches();      // 新しく追加されたブランチ一覧表示関数
+                    break;
+                default:
+                    break;
+            }
+
+            // 最後の問題をクリアした場合の処理
+            if (currentQuestionIndex === questions.length) {
+                endGame()
+            }
+        }
+
+        function createSub1Branch() {
+            // 新しく追加されたブランチ作成関数の中身
+            showLog("ブランチ sub1 を作成しました。", "green");
+        }
+
+        function checkoutSub1() {
+            // 新しく追加されたブランチ移動関数の中身
+            showLog("ブランチ sub1 に移動しました。", "green");
+        }
+
+        function showBranches() {
+            // 新しく追加されたブランチ一覧表示関数の中身
+            showLog("現在のブランチ一覧:", "white");
+            showLog("* master", "white");
+            showLog("　sub1", "white");
+        }
+
+        function checkCommand() {
+            const userInputValue = userInput.value.trim();
+            const currentQuestion = questions[currentQuestionIndex];
+
+            if (userInputValue === currentQuestion) {
+                showLog(`$ ${userInputValue}`, "white");
+                nextQuestion();
+            } else {
+                showLog(`$ ${userInputValue}`, "white");
+                showLog("そのコマンドは存在しません", "red");
+            }
+            userInput.value = '';
+        }
+
+        function displayCurrentQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            start.textContent = currentQuestion;
+        }
+
+        function showLog(message, color) {
+            const logElement = document.createElement("div");
+            logElement.style.color = color;
+            logElement.textContent = message;
+            commandLog.appendChild(logElement);
+        }
+
+        function endGame() {
+            retryButton.style.display = "block";
+            retryButton.addEventListener("click", function() {
+                commandLog.innerHTML = '';
+                createTree();
+            });
+        }
+    </script>
+    <script src="./js/tree.js"></script>
+</body>
+</html>
