@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>GitCraft free</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.js"></script>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="../favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
-    <link rel="stylesheet" href="./css/header.scss">
-    <link rel="stylesheet" href="./css/free.scss">
+    <link rel="stylesheet" href="../css/header.scss">
+    <link rel="stylesheet" href="../css/free.scss">
 </head>
 <body>
     <div id="header"></div>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <script>
-        fetch("header.html")
+        fetch("../header.html")
         .then((response) => response.text())
         .then((data) => document.querySelector("#header").innerHTML = data);
 
@@ -43,7 +43,7 @@
 
         let currentQuestionIndex = -1;
         const questions = [
-            "git init",
+            "git commit -m \"初めてのコミット\"",
             "git commit -m 'initial commit'",
             "git checkout -b develop",
             "git add .",
@@ -95,7 +95,7 @@
             // 各問題ごとに関数を呼び出す
             switch (currentQuestionIndex) {
                 case 1:
-                    createMasterBranch();
+                    MasterCommit();
                     break;
                 case 2:
                     MasterCommit();
@@ -162,6 +162,6 @@
             });
         }
     </script>
-    <script src="./js/tree.js"></script>
+    <script src="../js/commit_tree.js"></script>
 </body>
 </html>
