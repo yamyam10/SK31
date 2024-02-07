@@ -7,14 +7,14 @@
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
     <link rel="stylesheet" href="../css/header.scss">
-    <link rel="stylesheet" href="../css/free.scss">
+    <link rel="stylesheet" href="../css/branch.scss">
 </head>
 <body>
     <div id="header"></div>
     <div class="container">
-        <div class="graph">
+        <!-- <div class="graph">
             <canvas id="gitGraph"></canvas>
-        </div>
+        </div> -->
         <div class="typing">
             <h1 id="start" class="text-center">スタートボタンを押して下さい</h1>
             <button id="startButton" class="btn">スタート</button>
@@ -43,11 +43,9 @@
 
         let currentQuestionIndex = -1;
         const questions = [
-            "git init",
-            "git commit -m 'initial commit'",
-            "git checkout -b sub1",  // ブランチ作成コマンドを追加
+            "git checkout -b develop",  // ブランチの作成と作業ブランチの変更を同時に行う
             "git branch",           // ブランチ一覧表示コマンドを追加
-            "git checkout sub1",    // ブランチ移動コマンドを追加
+            "git checkout develop",    // ブランチ移動コマンドを追加
             "git branch"            // ブランチ一覧表示コマンドを追加
         ]
 
@@ -89,20 +87,17 @@
 
             // 各問題ごとに関数を呼び出す
             switch (currentQuestionIndex) {
+                case 1:
+                    createdevelopBranch();  // 新しく追加されたブランチ作成関数
+                    break;
                 case 2:
-                    createMasterBranch();
+                    showBranches_d();      // 新しく追加されたブランチ一覧表示関数
+                    break;
+                case 3:
+                    checkoutdevelop();      // 新しく追加されたブランチ移動関数
                     break;
                 case 4:
-                    createSub1Branch();  // 新しく追加されたブランチ作成関数
-                    break;
-                case 5:
-                    showBranches();      // 新しく追加されたブランチ一覧表示関数
-                    break;
-                case 6:
-                    checkoutSub1();      // 新しく追加されたブランチ移動関数
-                    break;
-                case 7:
-                    showBranches();      // 新しく追加されたブランチ一覧表示関数
+                    showBranches_m();      // 新しく追加されたブランチ一覧表示関数
                     break;
                 default:
                     break;
@@ -114,21 +109,28 @@
             }
         }
 
-        function createSub1Branch() {
+        function createdevelopBranch() {
             // 新しく追加されたブランチ作成関数の中身
-            showLog("ブランチ sub1 を作成しました。", "green");
+            showLog("ブランチ develop を作成し、移動しました。", "green");
         }
 
-        function checkoutSub1() {
+        function checkoutdevelop() {
             // 新しく追加されたブランチ移動関数の中身
-            showLog("ブランチ sub1 に移動しました。", "green");
+            showLog("ブランチ master に移動しました。", "green");
         }
 
-        function showBranches() {
+        function showBranches_d() {
+            // 新しく追加されたブランチ一覧表示関数の中身
+            showLog("現在のブランチ一覧:", "white");
+            showLog("* develop", "white");
+            showLog("　 master", "white");
+        }
+
+        function showBranches_m() {
             // 新しく追加されたブランチ一覧表示関数の中身
             showLog("現在のブランチ一覧:", "white");
             showLog("* master", "white");
-            showLog("　sub1", "white");
+            showLog("　 develop", "white");
         }
 
         function checkCommand() {
