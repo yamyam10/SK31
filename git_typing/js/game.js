@@ -47,6 +47,7 @@ function startGame() {
     nextQuestion();
     startButton.style.display = "none";
     retryButton.style.display = "none";
+    title.style.display = "none";
     gameEnded = false; // ゲームが再スタートされたのでフラグをリセット
 }
 
@@ -155,6 +156,7 @@ function displayCurrentQuestion() {
         allowCreateTree = false; // フラグをリセット
     }
 }
+const title = document.getElementById("title");
 
 // スタートボタン要素の取得
 const startButton = document.getElementById("startButton");

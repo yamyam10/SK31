@@ -4,6 +4,7 @@
 }
 :root {
     --white: #fff;
+    --typingwhite: #ffffffaa;
     --header: #010509;
     --background: #1D2125;
     --btn: #26a641;
@@ -35,9 +36,13 @@ html, body {
             width: 70%;
             position: relative;
             left: -10%;
-            .text-center{
+            .title{
                 font-family: var(--font-family);
                 color: var(--white);
+            }
+            .text-center{
+                font-family: var(--font-family);
+                color: var(--typingwhite);
             }
             .btn {
                 background-color: var(--btn);
