@@ -45,8 +45,10 @@
         const questions = [
             "git checkout -b develop",  // ブランチの作成と作業ブランチの変更を同時に行う
             "git branch",           // ブランチ一覧表示コマンドを追加
-            "git checkout develop",    // ブランチ移動コマンドを追加
-            "git branch"            // ブランチ一覧表示コマンドを追加
+            "git checkout master",    // ブランチ移動コマンドを追加
+            "git branch",            // ブランチ一覧表示コマンドを追加
+            "git branch -d develop",
+            "git branch"
         ]
 
         // ボタンと入力欄の取得
@@ -99,6 +101,12 @@
                 case 4:
                     showBranches_m();      // 新しく追加されたブランチ一覧表示関数
                     break;
+                case 5:
+                    deletedevelop();      // 新しく追加されたブランチ一覧表示関数
+                    break;
+                case 6:
+                    showBranches_del();      // 新しく追加されたブランチ一覧表示関数
+                    break;
                 default:
                     break;
             }
@@ -119,6 +127,11 @@
             showLog("ブランチ master に移動しました。", "green");
         }
 
+        function deletedevelop() {
+            // 新しく追加されたブランチ移動関数の中身
+            showLog("ブランチ develop を削除しました。", "green");
+        }
+
         function showBranches_d() {
             // 新しく追加されたブランチ一覧表示関数の中身
             showLog("現在のブランチ一覧:", "white");
@@ -131,6 +144,12 @@
             showLog("現在のブランチ一覧:", "white");
             showLog("* master", "white");
             showLog("\u00A0\u00A0develop", "white");
+        }
+
+        function showBranches_del() {
+            // 新しく追加されたブランチ一覧表示関数の中身
+            showLog("現在のブランチ一覧:", "white");
+            showLog("* master", "white");
         }
 
         function checkCommand() {
