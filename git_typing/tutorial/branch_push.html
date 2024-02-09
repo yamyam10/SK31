@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>GitCraft branch push</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.js"></script>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.8.3/gitgraph.min.css" />
+    <link rel="stylesheet" href="../css/header.scss">
+    <link rel="stylesheet" href="../css/branch.scss">
+</head>
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <div class="typing">
+            <h1 id="start" class="text-center">Coming Soon</h1>
+        </div>
+    </div>
+    <script>
+        fetch("../header.html")
+        .then((response) => response.text())
+        .then((data) => document.querySelector("#header").innerHTML = data);
+    </script>
+    <script src="./js/tree.js"></script>
+</body>
+</html>
